@@ -1,0 +1,16 @@
+.li-item {
+  padding: 0.7rem;
+}
+
+.link-story {
+  text-decoration: none;
+  color: white;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10rem;
+  color: white;
+}
