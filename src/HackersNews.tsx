@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const URL = "http://hn.algolia.com/api/v1/search";
+const URL = "https://hn.algolia.com/api/v1/search";
 
 interface IStory {
   objectID: string;
@@ -21,15 +21,15 @@ interface IProps {
 
 function HackersNews(props: IProps) {
   const [stories, setStories] = useState([] as IStory[]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState("" as string);
 
   async function handleFetch() {
     let result;
     try {
       result = (await axios.get(`${URL}?query=${props.query}`)) as APIResponse;
       setStories(result.data.hits);
-    } catch (error) {
-      setError(error);
+    } catch (err: any) {
+      setError(err);
     }
   }
 
